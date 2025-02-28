@@ -16,9 +16,9 @@ export default function Map() {
           <MapContainer id={"map"}
           preferCanvas={true}
           center={[55.7505, 37.62]}
-          zoom={11}
+          zoom={12}
           scrollWheelZoom={true}
-          style={{ height: window.innerHeight, width: window.innerWidth }}
+          style={{ height: window.innerHeight - 60, width: window.innerWidth }}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

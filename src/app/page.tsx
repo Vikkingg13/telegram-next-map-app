@@ -29,12 +29,12 @@ export default function Home() {
         <InlineButtonsItem text="Настройки">
           <Settings />
         </InlineButtonsItem>
-        <InlineButtonsItem text="Осматриваться">
+        <InlineButtonsItem text="Обзор">
         <TravelExplore/>
         </InlineButtonsItem>
-        <InlineButtonsItem>
+        <InlineButtonsItem text='Профиль'>
         <Avatar
-          size={40}
+          size={24}
           src={initDataState?.user?.photoUrl}
         />
         </InlineButtonsItem>
