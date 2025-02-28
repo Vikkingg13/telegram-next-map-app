@@ -7,9 +7,11 @@ import "leaflet/dist/leaflet.css";
 import  "leaflet-defaulticon-compatibility" 
 import  "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css" 
 
+import "./styles.css"
+
 export default function Map() {
     return (
-          <MapContainer 
+          <MapContainer id={"map"}
           preferCanvas={true}
           center={[51.505, -0.09]}
           zoom={11}

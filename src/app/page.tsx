@@ -1,10 +1,15 @@
-'use client';
-
 import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
 import { useTranslations } from 'next-intl';
 
 import { Page } from '@/components/Page';
-import Map from '@/components/Map';
+import Map from '@/components/Map/Map';
+
+import dynamic from 'next/dynamic';
+
+const MapComponent = dynamic(
+  () => import('@/components/Map/Map'), // импортируем как промис
+  { ssr: false } // отключаем серверный рендеринг
+);
 
 
 export default function Home() {
@@ -12,7 +17,7 @@ export default function Home() {
 
   return (
     <Page back={false}>
-      <Map/>
+      <MapComponent/>
     </Page>
   );
 }
