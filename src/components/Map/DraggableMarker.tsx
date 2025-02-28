@@ -1,10 +1,20 @@
 import { useCallback, useMemo, useRef, useState } from "react"
 import { Marker, Popup } from "react-leaflet"
+import { Icon } from 'leaflet';
 
 const center = {
     lat: 55.7505,
     lng: 37.62,
   }
+
+const customIcon = new Icon({
+  iconUrl: '/marker-new-icon.png', // Импортированное изображение
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+  shadowUrl: '/marker-shadow.png',
+  shadowAnchor: [12, 40]
+});
   
 export default function DraggableMarker() {
 const [draggable, setDraggable] = useState(false)
@@ -30,7 +40,9 @@ return (
     draggable={draggable}
     eventHandlers={eventHandlers}
     position={position}
-    ref={markerRef}>
+    ref={markerRef}
+    icon={customIcon}
+    >
     <Popup minWidth={90}>
         <span onClick={toggleDraggable}>
         {draggable
