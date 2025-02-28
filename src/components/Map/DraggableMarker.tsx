@@ -9,7 +9,7 @@ const center = {
 export default function DraggableMarker() {
 const [draggable, setDraggable] = useState(false)
 const [position, setPosition] = useState(center)
-const markerRef = useRef(null)
+const markerRef = useRef<any>(null)
 const eventHandlers = useMemo(
     () => ({
     dragend() {
