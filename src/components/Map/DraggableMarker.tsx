@@ -8,12 +8,12 @@ const center = {
   }
 
 const customIcon = new Icon({
-  iconUrl: '/marker-new-icon.png', // Импортированное изображение
-  iconSize: [32, 32],
+  iconUrl: '/marker-new-icon-2x.png', // Импортированное изображение
+  iconSize: [50, 50],
   iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  popupAnchor: [8, -32],
   shadowUrl: '/marker-shadow.png',
-  shadowAnchor: [12, 40]
+  shadowAnchor: [0, 25]
 });
   
 export default function DraggableMarker() {
