@@ -8,9 +8,10 @@ import SentimentSatisfiedAlt from '@mui/icons-material/SettingsAccessibilityOutl
 
 import dynamic from 'next/dynamic';
 import { InlineButtonsItem } from '@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem';
-import { Settings, TravelExplore } from '@mui/icons-material';
+import { EditLocation, EditLocationAlt, Settings, TravelExplore } from '@mui/icons-material';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { initData, useSignal } from '@telegram-apps/sdk-react';
+import { useState } from 'react';
 
 const MapComponent = dynamic(
   () => import('@/components/Map/Map'), // импортируем как промис
@@ -19,8 +20,18 @@ const MapComponent = dynamic(
 
 
 export default function Home() {
-  const t = useTranslations('i18n');
+
   const initDataState = useSignal(initData.state);
+
+  const [editMode, setMode] = useState(true);
+
+  const handleProfileClick = () => {
+    window.location.href='/profile';
+  };
+
+  const handleModeClick = () => {
+    setMode(!editMode);
+  };
 
   return (
     <Page back={false}>
@@ -29,14 +40,20 @@ export default function Home() {
         <InlineButtonsItem text="Настройки">
           <Settings />
         </InlineButtonsItem>
-        <InlineButtonsItem text="Обзор">
-        <TravelExplore/>
+        <InlineButtonsItem 
+          text='Режим'
+          onClick={() => handleModeClick()}>
+          { editMode
+          ? <TravelExplore/>
+          : <EditLocationAlt/>
+          }
         </InlineButtonsItem>
-        <InlineButtonsItem text='Профиль'>
-        <Avatar
-          size={24}
-          src={initDataState?.user?.photoUrl}
-        />
+        <InlineButtonsItem text='Профиль' 
+          onClick={() => handleProfileClick()}>
+          <Avatar
+            size={24}
+            src={initDataState?.user?.photoUrl}
+          />
         </InlineButtonsItem>
     </InlineButtons>
     </Page>
