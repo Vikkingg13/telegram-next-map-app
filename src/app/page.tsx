@@ -25,6 +25,10 @@ export default function Home() {
 
   const [editMode, setMode] = useState(true);
 
+  const handleSettingsClick = () => {
+    window.location.href='/settings';
+  };
+
   const handleProfileClick = () => {
     window.location.href='/profile';
   };
@@ -37,7 +41,9 @@ export default function Home() {
     <Page back={false}>
       <MapComponent/>
       <InlineButtons mode="plain">
-        <InlineButtonsItem text="Настройки">
+        <InlineButtonsItem 
+          text="Настройки"
+          onClick={() => handleSettingsClick()}>
           <Settings />
         </InlineButtonsItem>
         <InlineButtonsItem 
