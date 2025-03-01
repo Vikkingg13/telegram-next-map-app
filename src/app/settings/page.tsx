@@ -1,3 +1,5 @@
+'use client'
+
 import { Page } from "@/components/Page";
 import { Cell, Switch } from "@telegram-apps/telegram-ui";
 

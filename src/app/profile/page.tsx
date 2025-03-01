@@ -2,14 +2,10 @@
 
 import { Page } from "@/components/Page";
 import { initData, useSignal } from "@telegram-apps/sdk-react";
-import { Avatar, Badge, Card, Cell, Image, Info, List, Section } from "@telegram-apps/telegram-ui";
-import { CardCell } from "@telegram-apps/telegram-ui/dist/components/Blocks/Card/components/CardCell/CardCell";
-import { CardChip } from "@telegram-apps/telegram-ui/dist/components/Blocks/Card/components/CardChip/CardChip";
-import { SectionFooter } from "@telegram-apps/telegram-ui/dist/components/Blocks/Section/components/SectionFooter/SectionFooter";
+import { Avatar, Badge, Cell, Info, List} from "@telegram-apps/telegram-ui";
 import { SectionHeader } from "@telegram-apps/telegram-ui/dist/components/Blocks/Section/components/SectionHeader/SectionHeader";
-import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import React from "react";
-import { WhereToVote, Cookie, Reviews, AddLocationAlt } from "@mui/icons-material";
+import { WhereToVote, Reviews, AddLocationAlt } from "@mui/icons-material";
 
 export default function Profile() {
     const initDataState = useSignal(initData.state);
