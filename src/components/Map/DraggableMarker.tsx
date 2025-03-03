@@ -1,3 +1,5 @@
+"use client"
+
 import { useCallback, useMemo, useRef, useState } from "react"
 import { Marker, Popup } from "react-leaflet"
 import { Icon } from 'leaflet';
@@ -28,6 +30,9 @@ const eventHandlers = useMemo(
         setPosition(marker.getLatLng())
         }
     },
+    click: () => {
+        console.log('marker clicked')
+      },
     }),
     [],
 )
@@ -38,7 +43,12 @@ const toggleDraggable = useCallback(() => {
 return (
     <Marker
     draggable={draggable}
-    eventHandlers={eventHandlers}
+    eventHandlers={{
+        click: () => {
+          console.log('marker clicked')
+          window.location.href='/edit-location'
+        },
+    }}
     position={position}
     ref={markerRef}
     icon={customIcon}
