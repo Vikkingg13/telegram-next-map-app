@@ -7,7 +7,7 @@ import React from "react";
                 
 export default function CityCard({ country, city, pic }: { country: string, city: string, pic: string }) {
     return (
-        <Card type="plain" style={{'margin': '20px 20px'}}>
+        <Card type="plain" style={{'marginTop': '20px'}}>
             <React.Fragment key=".0">
             <Link href={"/map"}>
             <CardChip readOnly >
