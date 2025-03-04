@@ -1,62 +1,40 @@
 'use client'
 
-import { Section, Cell, Image, List, Navigation, Button, InlineButtons, Avatar } from '@telegram-apps/telegram-ui';
-import { useTranslations } from 'next-intl';
-
-import { Page } from '@/components/Page';
-import SentimentSatisfiedAlt from '@mui/icons-material/SettingsAccessibilityOutlined'
-
-import dynamic from 'next/dynamic';
-import { InlineButtonsItem } from '@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem';
-import { AccountCircle, EditLocation, EditLocationAlt, Settings, TravelExplore } from '@mui/icons-material';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import { initData, useSignal } from '@telegram-apps/sdk-react';
-import { useState } from 'react';
-
-const MapComponent = dynamic(
-  () => import('@/components/Map/Map'), // импортируем как промис
-  { ssr: false } // отключаем серверный рендеринг
-);
-
+import { Page } from "@/components/Page";
+import SimpleSlider from "@/components/Slider/SimpleSlider";
+import { MyLocation } from "@mui/icons-material";
+import { Button, Card, Info, List, Placeholder, Section } from "@telegram-apps/telegram-ui";
+import { CardCell } from "@telegram-apps/telegram-ui/dist/components/Blocks/Card/components/CardCell/CardCell";
+import { CardChip } from "@telegram-apps/telegram-ui/dist/components/Blocks/Card/components/CardChip/CardChip";
+import { SectionHeader } from "@telegram-apps/telegram-ui/dist/components/Blocks/Section/components/SectionHeader/SectionHeader";
+import React from "react";
 
 export default function Home() {
-
-  const [editMode, setMode] = useState(true);
-
-  const handleSettingsClick = () => {
-    window.location.href='/settings';
-  };
-
-  const handleProfileClick = () => {
-    window.location.href='/profile';
-  };
-
-  const handleModeClick = () => {
-    setMode(!editMode);
-  };
-
-  return (
-    <Page back={false}>
-      <MapComponent/>
-      <InlineButtons mode="plain">
-        <InlineButtonsItem 
-          text="Настройки"
-          onClick={handleSettingsClick}>
-          <Settings />
-        </InlineButtonsItem>
-        <InlineButtonsItem 
-          text='Режим'
-          onClick={handleModeClick}>
-          { editMode
-          ? <TravelExplore/>
-          : <EditLocationAlt/>
-          }
-        </InlineButtonsItem>
-        <InlineButtonsItem text='Профиль' 
-          onClick={handleProfileClick}>
-          <AccountCircle/>
-        </InlineButtonsItem>
-    </InlineButtons>
-    </Page>
-  );
+    return (
+        <Page>
+            <Placeholder 
+                header="Где будем гулять?"
+                description="Используйте свою локацию или выберите город для отображения карты"> 
+                <img 
+                src="https://i.pinimg.com/originals/f9/0b/bb/f90bbbecefe44107f0352736015f0c17.gif"
+                style={{
+                    'borderRadius': "50%",
+                    'height': '30%',
+                    'width': '30%'
+                }}/>
+            </Placeholder>
+            <div style={{'marginLeft': '40px', 'marginRight': '40px'}}>
+                <List>
+                <Button 
+                    stretched
+                    before={<MyLocation/>}
+                    size="m"
+                    >
+                    Использовать моё местоположение
+                </Button>
+                <SimpleSlider></SimpleSlider>
+            </List>
+            </div>
+        </Page>
+    );
 }

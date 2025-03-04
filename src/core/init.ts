@@ -1,3 +1,4 @@
+import { locationManager } from '@telegram-apps/sdk';
 import {
   backButton,
   viewport,
@@ -14,13 +15,15 @@ import {
 export function init(debug: boolean): void {
   // Set @telegram-apps/sdk-react debug mode.
   $debug.set(debug);
-
+  console.log("Init");
   // Initialize special event handlers for Telegram Desktop, Android, iOS, etc.
   // Also, configure the package.
   initSDK();
 
   // Mount all components used in the project.
   backButton.isSupported() && backButton.mount();
+  locationManager.isSupported() && locationManager.mount();
+  console.log(locationManager.isSupported());
   miniApp.mount();
   themeParams.mount();
   initData.restore();

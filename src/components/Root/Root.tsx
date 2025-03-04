@@ -7,6 +7,7 @@ import {
   useLaunchParams,
   useSignal,
 } from '@telegram-apps/sdk-react';
+import { locationManager } from '@telegram-apps/sdk';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 
 import { ErrorBoundary } from '@/components/ErrorBoundary';
