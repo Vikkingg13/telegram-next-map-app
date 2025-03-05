@@ -6,10 +6,9 @@ import CityCard from "../Card/CityCard";
 
 export default function SimpleSlider() {
   var settings = {
-    className: "center",
+
     centerMode: true,
     infinite: true,
-    centerPadding: "80px",
     dots: true,
     speed: 800,
     slidesToShow: 1,

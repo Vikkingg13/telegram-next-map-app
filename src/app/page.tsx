@@ -14,7 +14,7 @@ export default function Home() {
         <Page>
             <Placeholder 
                 header="Где будем гулять?"
-                description="Используйте свою локацию или выберите город для отображения карты"> 
+                description="Используйте своё местоположение или выберите город для отображения локации."> 
                 <img 
                 src="https://i.pinimg.com/originals/f9/0b/bb/f90bbbecefe44107f0352736015f0c17.gif"
                 style={{
@@ -30,9 +30,9 @@ export default function Home() {
                     before={<MyLocation/>}
                     size="m"
                     >
-                    Использовать моё местоположение
+                    Моё местоположение
                 </Button>
-                <SimpleSlider></SimpleSlider>
+                <SimpleSlider/>
             </List>
             </div>
         </Page>
